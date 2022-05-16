@@ -1,0 +1,54 @@
+<section class="section pb-0 bg-gradient-info ">
+    <div class="container">
+        <div class="row row-grid align-items-center">
+            <div class="col-md-6 order-lg-2 ml-lg-auto">
+                <div class="position-relative pl-md-5">
+                    <img src="./assets/img/ill/ill-2.svg" class="img-center img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="d-flex px-3">
+                    <dx-pie-chart id="pie" palette="bright" [dataSource]="areas"
+                        (onPointClick)="pointClickHandler($event)" (onLegendClick)="legendClickHandler($event)">
+                        <dxi-series argumentField="country" valueField="area">
+                            <dxo-label [visible]="true">
+                                <dxo-connector [visible]="true" [width]="1"></dxo-connector>
+                            </dxo-label>
+                        </dxi-series>
+                        <dxo-size [width]="500"></dxo-size>
+                    </dx-pie-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SVG separator -->
+    <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+            xmlns="http://www.w3.org/2000/svg">
+            <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+    </div>
+</section>
+<section class="section section-lg section-nucleo-icons pb-250">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="display-3">Lost&Found</h2>
+                <p class="lead">
+                    Sample automated app aims to help the community if you lose your wallet.
+                    And another hero found it and entered the full name of the person on national card id or any unique
+                    information about your wallet that can enhance the chance to get back what you lost.
+                    The app will match and notify you with the information to connect with the hero.
+                    Also, If the lost item has a picture and the same thing in the picture is found in our collection
+                    will match the images and return back to you with information to connect with the hero!!.
+                </p>
+                <div class="btn-wrapper">
+                    <a [routerLink]="['lost']" class="btn btn-primary">Lost your item!!</a>
+                    <a [routerLink]="['found']" class="btn btn-default mt-3 mt-md-0">
+                        Found Item!!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

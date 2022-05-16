@@ -56,6 +56,3 @@ def found():
     res = FoundController.insertRecord(body)
     response = {'response': res}
     return response
-
-
-app.run()

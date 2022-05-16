@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpService } from '../services/http.service';
+import { HttpService } from '../../services/http.service';
 
 export interface IAlert {
   id: number;
@@ -11,11 +11,11 @@ export interface IAlert {
   icon?: string;
 }
 @Component({
-  selector: 'app-lost',
-  templateUrl: './lost.component.html',
-  styleUrls: ['./lost.component.scss']
+  selector: 'app-found-page',
+  templateUrl: './found-page.component.html',
+  styleUrls: ['./found-page.component.scss']
 })
-export class LostComponent implements OnInit {
+export class FoundPageComponent implements OnInit {
   focus?: any;
   focus1?: any;
   focus5?: any;
@@ -23,7 +23,7 @@ export class LostComponent implements OnInit {
   showBank: boolean = false
   isChecked?: boolean;
   value: number = 0;
-  lostForm = new FormGroup({
+  foundForm = new FormGroup({
     'fullName': new FormControl('', [
       Validators.required,
       Validators.minLength(4)
@@ -42,18 +42,18 @@ export class LostComponent implements OnInit {
   checkCheckBoxvalue(event: any): void {
     this.showNational = event.target.checked
     if (!!this.showNational) {
-      this.lostForm.get('nationalCardNo')?.setValidators(Validators.required);
+      this.foundForm.get('nationalCardNo')?.setValidators(Validators.required);
     } else {
-      this.lostForm.get('nationalCardNo')?.setValidators(null);
+      this.foundForm.get('nationalCardNo')?.setValidators(null);
     }
   }
 
   checkCheckBoxBank(event: any): void {
     this.showBank = event.target.checked
     if (this.showBank) {
-      this.lostForm.get('bankCardNo')?.setValidators(Validators.required);
+      this.foundForm.get('bankCardNo')?.setValidators(Validators.required);
     } else {
-      this.lostForm.get('bankCardNo')?.setValidators([]);
+      this.foundForm.get('bankCardNo')?.setValidators([]);
     }
   }
 
@@ -82,8 +82,8 @@ export class LostComponent implements OnInit {
   }
 
   onFormSubmit(): void {
-    if (this.lostForm.valid) {
-      this.http.userLost(this.lostForm.value).subscribe((result: any) => {
+    if (this.foundForm.valid) {
+      this.http.userLost(this.foundForm.value).subscribe((result: any) => {
         if (result.response === "success") {
           this.alerts.push({
             id: 1,

@@ -1,4 +1,3 @@
-<app-navbar></app-navbar>
 <div class="card bg-secondary shadow border-0">
     <section class="section pb-0 section-components">
         <div *ngIf="status">
@@ -18,7 +17,8 @@
         <div class="progress-wrapper">
             <div class="progress-info">
                 <div class="col-sm-9">
-                    <h3 class="heading-title text-warning mb-0">Increase your chance to find your item.</h3>
+                    <h3 class="heading-title text-warning mb-0">Increase chance to get the find item matched in our
+                        collection.</h3>
                 </div>
                 <div class="progress-percentage">
                     <span>{{value}}%</span>
@@ -26,24 +26,24 @@
             </div>
             <ngb-progressbar type="success" [value]="value"></ngb-progressbar>
         </div>
-        <form [formGroup]="lostForm" (ngSubmit)="onFormSubmit()">
+        <form [formGroup]="foundForm" (ngSubmit)="onFormSubmit()">
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-sm-6 ">
                     <div class="form-group ">
                         <div class="mb-3">
-                            <small class="text-uppercase font-weight-bold">Full name in any card id was in the
+                            <small class="text-uppercase font-weight-bold">Full name in any card id in the
                                 wallet.</small>
                             <input type="text" placeholder="Full name" class="form-control form-control-alternative"
                                 (change)="fullNameChange($event)" id="fullName" name="fullName"
                                 formControlName="fullName" />
                         </div>
 
-                        <div *ngIf="lostForm.get('fullName')?.invalid && (lostForm.get('fullName')?.dirty || lostForm.get('fullName')?.touched)"
+                        <div *ngIf="foundForm.get('fullName')?.invalid && (foundForm.get('fullName')?.dirty || foundForm.get('fullName')?.touched)"
                             class="alert alert-danger">
-                            <div *ngIf="lostForm.get('fullName')?.errors?.required">
+                            <div *ngIf="foundForm.get('fullName')?.errors?.required">
                                 Full Name is required.
                             </div>
-                            <div *ngIf="lostForm.get('fullName')?.errors?.minlength">
+                            <div *ngIf="foundForm.get('fullName')?.errors?.minlength">
                                 Full Name must be at least 4 characters long.
                             </div>
                         </div>
@@ -68,13 +68,16 @@
                     <div class="form-group ">
                         <div class="mb-3">
                             <small class="text-uppercase font-weight-bold">National card number.</small>
+
+                        </div>
+                        <div>
                             <input type="number" placeholder="National card number."
                                 class="form-control form-control-alternative" name="nationalCardNo" id="nationalCardNo"
                                 (change)="nationalCardChange($event)" formControlName="nationalCardNo" />
                         </div>
-                        <div *ngIf="lostForm.get('nationalCardNo')?.invalid && (lostForm.get('nationalCardNo')?.dirty || lostForm.get('nationalCardNo')?.touched)"
+                        <div *ngIf="foundForm.get('nationalCardNo')?.invalid && (foundForm.get('nationalCardNo')?.dirty || foundForm.get('nationalCardNo')?.touched)"
                             class="alert alert-danger">
-                            <div *ngIf="lostForm.get('nationalCardNo')?.errors?.required">
+                            <div *ngIf="foundForm.get('nationalCardNo')?.errors?.required">
                                 National card number is required.
                             </div>
                         </div>
@@ -104,9 +107,9 @@
                             class="form-control form-control-alternative" id="bankCardNo" name="bankCardNo"
                             (change)="bankInputChange($event)" formControlName="bankCardNo" />
                     </div>
-                    <div *ngIf="lostForm.get('bankCardNo')?.invalid && (lostForm.get('bankCardNo')?.dirty || lostForm.get('bankCardNo')?.touched)"
+                    <div *ngIf="foundForm.get('bankCardNo')?.invalid && (foundForm.get('bankCardNo')?.dirty || foundForm.get('bankCardNo')?.touched)"
                         class="alert alert-danger">
-                        <div *ngIf="lostForm.get('bankCardNo')?.errors?.required">
+                        <div *ngIf="foundForm.get('bankCardNo')?.errors?.required">
                             Bank card number is required.
                         </div>
                     </div>
@@ -123,4 +126,3 @@
 
     </section>
 </div>
-<app-footer></app-footer>

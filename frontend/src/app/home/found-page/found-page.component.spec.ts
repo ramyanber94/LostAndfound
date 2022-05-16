@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LostComponent } from './lost.component';
+import { FoundPageComponent } from './found-page.component';
 
-describe('LostComponent', () => {
-  let component: LostComponent;
-  let fixture: ComponentFixture<LostComponent>;
+describe('FoundPageComponent', () => {
+  let component: FoundPageComponent;
+  let fixture: ComponentFixture<FoundPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LostComponent ]
+      declarations: [ FoundPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LostComponent);
+    fixture = TestBed.createComponent(FoundPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
