@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
+
 export class LandingPageComponent implements OnInit {
-  constructor(private router: Router) { }
+  msg?: string;
+
+  constructor(private router: Router, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
+    this.notificationService
+      .getMessage()
   }
 
   areas = [{

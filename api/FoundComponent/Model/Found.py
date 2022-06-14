@@ -1,9 +1,7 @@
 class Found:
     foundObject = {
-        'id': '',
-        'fullName': '',
-        'nationalCardId': '',
-        'bankCardId': ''
+        'foundItem': {},
+        'foundHero': {}
     }
 
     def __init__(self, body):

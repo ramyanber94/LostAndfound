@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpService } from '../services/http.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
     'email': new FormControl('', Validators.required),
     'password': new FormControl('', Validators.required),
   })
-  constructor(private http: HttpService, private router: Router) {
+  constructor(private http: HttpService, private router: Router, private notificationService: NotificationService) {
   }
 
   ngOnInit(): void {

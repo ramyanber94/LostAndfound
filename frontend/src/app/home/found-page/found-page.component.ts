@@ -28,8 +28,8 @@ export class FoundPageComponent implements OnInit {
       Validators.required,
       Validators.minLength(4)
     ]),
-    'nationalCardNo': new FormControl(''),
-    'bankCardNo': new FormControl('')
+    'nationalCardId': new FormControl(''),
+    'bankCardId': new FormControl('')
   })
 
   status: boolean = false
@@ -42,18 +42,18 @@ export class FoundPageComponent implements OnInit {
   checkCheckBoxvalue(event: any): void {
     this.showNational = event.target.checked
     if (!!this.showNational) {
-      this.foundForm.get('nationalCardNo')?.setValidators(Validators.required);
+      this.foundForm.get('nationalCardId')?.setValidators(Validators.required);
     } else {
-      this.foundForm.get('nationalCardNo')?.setValidators(null);
+      this.foundForm.get('nationalCardId')?.setValidators(null);
     }
   }
 
   checkCheckBoxBank(event: any): void {
     this.showBank = event.target.checked
     if (this.showBank) {
-      this.foundForm.get('bankCardNo')?.setValidators(Validators.required);
+      this.foundForm.get('bankCardId')?.setValidators(Validators.required);
     } else {
-      this.foundForm.get('bankCardNo')?.setValidators([]);
+      this.foundForm.get('bankCardId')?.setValidators([]);
     }
   }
 
@@ -83,7 +83,7 @@ export class FoundPageComponent implements OnInit {
 
   onFormSubmit(): void {
     if (this.foundForm.valid) {
-      this.http.userLost(this.foundForm.value).subscribe((result: any) => {
+      this.http.userFound({ ...this.foundForm.value, id: localStorage.getItem('id') }).subscribe((result: any) => {
         if (result.response === "success") {
           this.alerts.push({
             id: 1,

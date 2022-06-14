@@ -18,3 +18,16 @@ class UserController:
             return res
         else:
             return 'failed'
+
+    def controlGetUserById(self):
+        res = UserDb.getUserById(self)
+        if res:
+            return res
+        else:
+            return 'failed'
+
+    def controlOnline(self):
+        if self['data']['online']:
+            UserDb.updateUser(self['data']['id'], "1")
+        else:
+            UserDb.updateUser(self['data']['id'], "0")

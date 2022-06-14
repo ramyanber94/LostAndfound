@@ -3,7 +3,8 @@ class User:
         'name': '',
         'phoneNumber': '',
         'email': '',
-        'password': ''
+        'password': '',
+        'online': 0
     }
 
     def __init__(self, body):

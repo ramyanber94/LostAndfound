@@ -1,8 +1,8 @@
-class User:
+class Match:
     matchObject = {
-        'foundId': '',
-        'lostId': '',
-        'foundItem': ''
+        'foundHero': {},
+        'item': {},
+        'lostUser': {}
     }
 
     def __init__(self, body):

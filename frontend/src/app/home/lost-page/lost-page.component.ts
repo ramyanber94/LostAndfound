@@ -83,7 +83,7 @@ export class LostPageComponent implements OnInit {
 
   onFormSubmit(): void {
     if (this.lostForm.valid) {
-      this.http.userLost(this.lostForm.value).subscribe((result: any) => {
+      this.http.userLost({ ...this.lostForm.value, id: localStorage.getItem('id') }).subscribe((result: any) => {
         if (result.response === "success") {
           this.alerts.push({
             id: 1,

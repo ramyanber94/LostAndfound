@@ -16,7 +16,10 @@ import { HomeModule } from './home/home.module';
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { NotificationService } from './services/notification.service';
 
+const config: SocketIoConfig = { url: 'http://localhost:8000/', options: {} };
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,9 +44,10 @@ import { SignupComponent } from './signup/signup.component';
     MatSliderModule,
     MatIconModule,
     MatToolbarModule,
-    HomeModule
+    HomeModule,
+    SocketIoModule.forRoot(config)
   ],
-  providers: [],
+  providers: [NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -72,12 +72,12 @@
                         </div>
                         <div>
                             <input type="number" placeholder="National card number."
-                                class="form-control form-control-alternative" name="nationalCardNo" id="nationalCardNo"
-                                (change)="nationalCardChange($event)" formControlName="nationalCardNo" />
+                                class="form-control form-control-alternative" name="nationalCardId" id="nationalCardId"
+                                (change)="nationalCardChange($event)" formControlName="nationalCardId" />
                         </div>
-                        <div *ngIf="foundForm.get('nationalCardNo')?.invalid && (foundForm.get('nationalCardNo')?.dirty || foundForm.get('nationalCardNo')?.touched)"
+                        <div *ngIf="foundForm.get('nationalCardId')?.invalid && (foundForm.get('nationalCardId')?.dirty || foundForm.get('nationalCardId')?.touched)"
                             class="alert alert-danger">
-                            <div *ngIf="foundForm.get('nationalCardNo')?.errors?.required">
+                            <div *ngIf="foundForm.get('nationalCardId')?.errors?.required">
                                 National card number is required.
                             </div>
                         </div>
@@ -104,12 +104,12 @@
                             <small class="text-uppercase font-weight-bold">Digits of the bank card.</small>
                         </div>
                         <input type="number" placeholder="Digits of the bank card."
-                            class="form-control form-control-alternative" id="bankCardNo" name="bankCardNo"
-                            (change)="bankInputChange($event)" formControlName="bankCardNo" />
+                            class="form-control form-control-alternative" id="bankCardId" name="bankCardId"
+                            (change)="bankInputChange($event)" formControlName="bankCardId" />
                     </div>
-                    <div *ngIf="foundForm.get('bankCardNo')?.invalid && (foundForm.get('bankCardNo')?.dirty || foundForm.get('bankCardNo')?.touched)"
+                    <div *ngIf="foundForm.get('bankCardId')?.invalid && (foundForm.get('bankCardId')?.dirty || foundForm.get('bankCardId')?.touched)"
                         class="alert alert-danger">
-                        <div *ngIf="foundForm.get('bankCardNo')?.errors?.required">
+                        <div *ngIf="foundForm.get('bankCardId')?.errors?.required">
                             Bank card number is required.
                         </div>
                     </div>
